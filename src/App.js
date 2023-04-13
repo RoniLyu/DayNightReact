@@ -1,24 +1,26 @@
-import logo from './logo.svg';
 import './App.css';
+import { useState } from 'react';
 
 function App() {
+  const [switcher, setSwitcher] = useState(false)
+  const handleSwitcher = () => {
+    setSwitcher(!switcher)
+  }
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
+    <>
+      <div className="container">
+        <div class="window"
+          style={{ backgroundColor: switcher ? '#5cf' : 'blue' }}
         >
-          Learn React
-        </a>
-      </header>
-    </div>
+          <div class="planet"
+            style={{ backgroundColor: switcher ? 'yellow' : '#fff' }}
+          ></div>
+        </div>
+        <button onClick={handleSwitcher}>{switcher ? 'Night' : 'Day'}</button>
+      </div>
+
+    </>
   );
 }
 
